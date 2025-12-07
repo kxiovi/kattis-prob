@@ -1,0 +1,11 @@
+SET(maxr = 9)
+SET(maxe = 25000)
+SET(maxg = 18446744073709551615)
+SET(maxh = 24)
+INT(1, maxr, r) SPACE INT(1, maxe, e) SPACE INT(1, maxg, g) NEWLINE
+REP(r)
+    INT(1, r, reindeer_id) NEWLINE
+    WHILEI()
+
+END
+EOF
