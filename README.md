@@ -5,7 +5,8 @@ Author: Vidhi Patel
 ID: 1702707
 
 # Algorithm Description
-Algorithm: The solution uses network flow and is O().  
+Algorithm: The solution uses network flow kactl's Dinic implementation, thus should have a worst case runtime of O().  
+The solution __________________ . 
 
 # Test Cases Description
 Test Cases
