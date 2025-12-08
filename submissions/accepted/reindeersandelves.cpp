@@ -32,6 +32,7 @@
 using namespace std;
 
 using ull = uint64_t;
+using ulll = __uint128_t;
 
 #define rep(i, a, b) for(int i = a; i < (b); ++i)
 #define all(x) begin(x), end(x)
@@ -91,6 +92,11 @@ int main() {
     ull r, e, g;
 	cin >> r >> e >> g;
 
+	if (g > 5400) {
+		cout << "impossible";
+		return 0;
+	}
+
 	// using unordered map like this: reindeer_id : [hour: [elves preferred]]
 	// read everything in and store as 0 indexed for indexing in the network flow
 	unordered_map <int, map<int, vi>> dict;
@@ -149,8 +155,8 @@ int main() {
 		}
 	}
 
-	ll ans = dinic.calc(source, sink);
-	ll gift = ans * 25;
+	ull ans = dinic.calc(source, sink);
+	ull gift = ans * 25;   
 	if (gift >= g) {
 		cout << "possible";
 	} else {
