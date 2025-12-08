@@ -1,3 +1,5 @@
+#!/bin/python3
+
 """
 Check that there are not repeats in hours, elves, reindeer_id's.
 To test manually: 
