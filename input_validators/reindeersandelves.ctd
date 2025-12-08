@@ -5,7 +5,20 @@ SET(maxh = 24)
 INT(1, maxr, r) SPACE INT(1, maxe, e) SPACE INT(1, maxg, g) NEWLINE
 REP(r)
     INT(1, r, reindeer_id) NEWLINE
-    WHILEI()
+    SET(done = 0)
+    WHILE(done == 0)
+        INT (0, maxh, hour_or_0)
+        IF (hour_or_0 == 0) 
+            NEWLINE
+            SET(done = 1)
+        ELSE
+            SPACE INT(1, e, first_elf)
+            WHILE(MATCH(" "))
+                SPACE INT(1, e, elf)
+            END
 
+            NEWLINE
+        END
+    END
 END
 EOF
