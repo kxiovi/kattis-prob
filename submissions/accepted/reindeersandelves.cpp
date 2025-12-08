@@ -12,6 +12,8 @@
 
   <List Resources Here>
   kactl - Dinic
+  To decide which data structure to use to store input: https://ngoduyhoa.blogspot.com/2015/06/summary-of-different-containers.html
+  reading in string: https://favtutor.com/blogs/split-string-cpp
 
   List any classmate you discussed the problem with. Remember, you can only
   have high-level verbal discussions. No code should be shared, developed,
@@ -85,5 +87,73 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 
-    
+	// not using ull for g may lead to overflow in some test cases
+    ull r, e, g;
+	cin >> r >> e >> g;
+
+	// using unordered map like this: reindeer_id : [hour: [elves preferred]]
+	// read everything in and store as 0 indexed for indexing in the network flow
+	unordered_map <int, map<int, vi>> dict;
+	for (int i = 0; i < r; ++i) {
+		int reindeer_id;
+		cin >> reindeer_id;
+		while (true) {
+			int hour;
+			cin >> hour;
+			if (hour == 0) break;  // termination symbol is 0
+
+			string row;
+			getline(cin, row); 
+			stringstream ss(row);
+			int elf;
+			while (ss >> elf) {
+				elf -= 1;
+				dict[reindeer_id][hour].push_back(elf);
+			}
+		}
+	}
+
+	/*
+	Network flow indices
+	0: source
+	1 to r*24: each note represents combination of reindeer and hour. Should be max 9*24.
+	rhcombo + 1 to rhcombo + e*24: combination of elf and hour. 
+	rhcombo + ehcombo + 1: sink
+	*/
+
+	int source = 0;
+	int rhcombo = r * 24;
+	int ehcombo = e * 24;
+	int sink = rhcombo + ehcombo + 1;
+	Dinic dinic(sink+1);
+
+	const int r24 = r * 24;
+
+	// for every reindeer, for each hour it can work, there is a cap of 1
+	// since a reindeer can work for 1 elf per hour
+	for (auto& [reindeer, hours] : dict) {
+		for (auto& [hour, elves] : hours) {
+			int rh = reindeer * 24 + hour + 1;
+			dinic.addEdge(source, rh, 1);
+			for (int elf : elves) {
+				int eh = r24 + elf * 24 + hour + 1;
+				dinic.addEdge(rh, eh, 1);
+			}
+		}
+	}
+
+	// each elf can work with only 1 reindeer per hour
+	for (int elf = 0; elf < e; ++elf) {
+		for (int hour = 0; hour < 24; ++hour) {
+			dinic.addEdge(r24 + elf * 24 + hour + 1, sink, 1);
+		}
+	}
+
+	ll ans = dinic.calc(source, sink);
+	ll gift = ans * 25;
+	if (gift >= g) {
+		cout << "possible";
+	} else {
+		cout << "impossible";
+	}
 }
