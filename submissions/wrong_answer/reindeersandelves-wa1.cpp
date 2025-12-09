@@ -28,7 +28,8 @@
   END-HEADER
 */
 
-// This is the wrong answer because it will overflow if g cannot fit in 32 bit int.
+// doesn't multiple final answer by 25. thus will get the impossible test cases 
+// correct, but will get the possible test cases wrong.
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -90,7 +91,7 @@ int main() {
     cin.tie(NULL);
 
 	// not using ull for g may lead to overflow in some test cases
-    int r, e, g;
+    ull r, e, g;
 	cin >> r >> e >> g;
 
 	// using unordered map like this: reindeer_id : [hour: [elves preferred]]
@@ -152,7 +153,7 @@ int main() {
 	}
 
 	ll ans = dinic.calc(source, sink);
-	ll gift = ans * 25;
+	ll gift = ans;
 	if (gift >= g) {
 		cout << "possible";
 	} else {

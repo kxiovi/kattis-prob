@@ -11,6 +11,8 @@ import sys
 
 def validation():
     lines = sys.stdin.read().strip().split('\n')
+    if len(lines) < 2:
+        return False
     parts = lines[0].split()
     r, e, g = map(int, parts)
     # l = 0 are the first 3 integers and are checked by the ctd file
@@ -48,10 +50,10 @@ def validation():
             for elf in elves:
                 assert 1 <= elf <= e
             assert len(elves) == len(set(elves))
-        assert len(prev_reindeer) == r
-        assert prev_reindeer == set(range(1, r+1))
-        assert l == len(lines)
-        return True
+    assert len(prev_reindeer) == r
+    assert prev_reindeer == set(range(1, r+1))
+    assert l == len(lines)
+    return True
 
 def main():
     try: 
