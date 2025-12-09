@@ -16,7 +16,7 @@ are *e* * 24, are indexes *r* * 24 to *r* * 24 + *e* * 24. The sink is index *r*
 > Note: number of reindeer = *r* and number of elves = *e*
 
 # Test Cases Description
-The sample test cases are simple to develop intuition for the problem. 
+The sample test cases are simple, to help develop intuition for the problem. 
 The secret tests cases:  
 
     01: number of max gifts possible is 5400. so if gift count is above that, it's impossible  
@@ -27,8 +27,7 @@ The secret tests cases:
 
     04: tests the minimum of all inputs  
     
-    05: tests the max of all inputs except g is 5400 in the case that solution has a trick 
-    to exit at a certain threshold of g  
+    05: tests the max of all inputs except *g* is 5400 in the case that solution has a trick to exit at a certain threshold of *g*  
 
     06: random, just so it may somehow catch something missed by other test cases  
 
