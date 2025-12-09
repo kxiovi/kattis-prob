@@ -174,13 +174,17 @@ def case_7():
     return "\n".join(data) + "\n"
 
 def main():
+    # tests = [
+    #     ("01.in", case_1), 
+    #     ("02.in", case_2), 
+    #     ("03.in", case_3), 
+    #     ("04.in", case_4), 
+    #     ("05.in", case_5), 
+    #     ("06.in", case_6)
+    # ]
+
     tests = [
-        ("01.in", case_1), 
-        ("02.in", case_2), 
-        ("03.in", case_3), 
-        ("04.in", case_4), 
-        ("05.in", case_5), 
-        ("06.in", case_6)
+        ("07.in", case_7)
     ]
 
     for file, g in tests:

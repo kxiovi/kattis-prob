@@ -24,6 +24,8 @@ The secret tests cases:
     05: tests the max of all inputs except g is 5400 in the case that solution has a trick 
     to exit at a certain threshold of g
     06: random, just so it may somehow catch something missed by other test cases
+    07: a test that should output `possible` because most of these tests either ouput 
+    `impossible` or are very simple 
 
 > Note: The reason that the maximum gifts *g* that would allow output to be `possible` is 5400
 is because there are only up to 9 reindeer, working for 24 hours. If all 9 reindeer
