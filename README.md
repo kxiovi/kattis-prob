@@ -18,6 +18,7 @@ are *e* * 24, are indexes *r* * 24 to *r* * 24 + *e* * 24. The sink is index *r*
 # Test Cases Description
 The sample test cases are simple to develop intuition for the problem. 
 The secret tests cases:  
+
     01: number of max gifts possible is 5400. so if gift count is above that, it's impossible  
 
     02: overflows if the solution doesn't use 64 bit integer for storing gift count *g*  
@@ -30,7 +31,7 @@ The secret tests cases:
     to exit at a certain threshold of g  
 
     06: random, just so it may somehow catch something missed by other test cases  
-    
+
     07: a test that should output `possible` because most of these tests either ouput 
     `impossible` or are very simple  
 
