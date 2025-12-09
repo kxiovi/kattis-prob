@@ -1,31 +1,30 @@
-\problemname{Reindeers \& Elves}
+\problemname{Reindeer \& Elves}
 
-You're about to go home for Christmas, but you've been urgently paged by the Claus's to
+You're about to go home for Christmas, but you've been urgently paged to the North Pole to
 solve a dilemma. 
 
-"Every year, " Mrs. Claus says, "in Santa's workshop, there are $r$ reindeers and $e$ elves that 
+"Every year," Mrs. Claus says, "in Santa's workshop, there are $r$ reindeer and $e$ elves that 
 work together in harmony."
 
-However, she explains, this year, the reindeers and elves have been quabbling amongst themselves, 
-and now the reindeers claim that they will only work with certain elves. Unfortunately, even 
-whilst working their tiffs continue, and so the reindeers' preferences change by the hour. 
-Thus, for each hour, a reindeer will only work with one elf out of its preferred elves. In turn, 
+However, she explains, this year the reindeer and elves have been quabbling amongst themselves, 
+and now the reindeer claim that they will only work with certain elves. Unfortunately, even 
+whilst working their tiffs continue, and so the reindeer's preferences change by the hour. 
+For each hour, a reindeer will only work with one elf out of its preferred elves. In turn, 
 an elf can work with at most one reindeer each hour. And both must work in pairs, which will allow
 them to make and deliver up to 25 gifts per hour. 
 
 Given a gift quota $g$, determine whether this quota can be met based on the given reindeer schedule
-and their preferred elves. Note that not all reindeers are available at every hour. For example, 
-reindeer 1 may be available at hours 1, 2, 3, 4 and reindeer 2 may be available at hours 1, 3.
-
+and their preferred elves. Note that not all reindeer are available at every hour. For example, 
+$r_1$ may be available at hours 1, 2, 3, 4 and $r_2$ may be available at hours 1, 3.
 
 \section*{Input}
 
 The first line of input contains 3 integers $r, e, g$ ($1 \leq r \leq 9$ and $1 \leq e \leq 25\,000$ 
-and $0 \leq g \leq 18\,446\,744\,073\,709\,551\,615$) as defined in the problem. For all $r$ 
-reindeers, there is a reindeer id number ($1 \leq 9$) differentiating the reindeers. For each reindeer 
-id, there are hours $h$ ($1 \leq 24$) lines, with the first number being $h$, and the 
-next number being elf ids ($1 \leq 25\,000$) that a reindeer can work with. A separate line 
-containing 0 marks the end of a reindeers preferences list.
+and $0 \leq g \leq 18\,446\,744\,073\,709\,551\,615$) as defined in the problem. Then, for the next $r$ 
+lines, there is a $r_i$ ($1 \leq i \leq 9$) differentiating the reindeer. On the next hours $h$ lines, for each 
+$r_i$, the first integer is $h$, and the next integer is some quantity of $e_j$ ($1 \leq j \leq 25\,000$), 
+space separated, that a reindeer can work with in that hour. A separate line containing 0 marks the end of a 
+reindeer's preferences list.
 
 \section*{Output}
 
