@@ -173,18 +173,44 @@ def case_7():
         data.append("0")
     return "\n".join(data) + "\n"
 
+
+def case_8():
+    '''
+    Another case that is possible because that are very many elves in comparison to deer
+    As well, deer work all hours
+    '''
+
+    r = 9
+    e = 4000
+    g = 3500
+
+    data = [f"{r} {e} {g}"]
+    for reindeer in range(1, r+1):
+        data.append(str(reindeer))
+        num_hours = random.randint(1, 24)
+        # hours = sorted(random.sample(range(1, 25), num_hours))
+        for h in range(1, 25): 
+            num_elves = random.randint(20, e)
+            elves = sorted(random.sample(range(1, e+1), num_elves))
+            data.append(f"{h} " + " ".join(map(str, elves)))
+        data.append("0")
+    return "\n".join(data) + "\n"
+    
+
 def main():
-    # tests = [
-    #     ("01.in", case_1), 
-    #     ("02.in", case_2), 
-    #     ("03.in", case_3), 
-    #     ("04.in", case_4), 
-    #     ("05.in", case_5), 
-    #     ("06.in", case_6)
-    # ]
+    tests = [
+        ("01.in", case_1), 
+        ("02.in", case_2), 
+        ("03.in", case_3), 
+        ("04.in", case_4), 
+        ("05.in", case_5), 
+        ("06.in", case_6), 
+        ("07.in", case_7), 
+        ("08.in", case_8)
+    ]
 
     tests = [
-        ("07.in", case_7)
+        ("08.in", case_8)
     ]
 
     for file, g in tests:
