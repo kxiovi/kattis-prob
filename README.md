@@ -41,6 +41,11 @@ The secret tests cases:
     most of these tests either output `impossible`  
     or are very simple  
 
+    08: tests basic capability of solution to output  
+    `possible` with very many elves, and the reindeer  
+    working all 24 hours. In comparison to test 07,
+    this is a more complicated test. 
+
 > Note: The reason that the maximum gifts *g* that would allow output to be `possible` is 5400
 is because there are only up to 9 reindeer, working for 24 hours. If all 9 reindeer
 are paired with elf for all 24 hours, the gifts ouputted would be: `9 * 24 * 25 =  5400`.
