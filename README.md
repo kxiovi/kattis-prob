@@ -5,7 +5,8 @@ Author: Vidhi Patel
 ID: 1702707
 
 # Algorithm Description
-Algorithm: The solution implements network flow using kactl's Dinic implementation. Since the solution utilizes a unit network (where each edge has a capacity of 1), the time complexity is O(sqrt(V) * E).  
+Algorithm: The solution implements network flow using kactl's Dinic implementation. Since the solution utilizes a unit network (where each edge has a capacity of 1), the time complexity is O(sqrt(V) * E). 
+
 The solution uses Dinic's algorithm to create a network flow. The network has this structure: 
 `source --> reindeer-hour nodes --> elf-hour nodes --> sink`. This structure ensures that each available reindeer
 pairs with only 1 elf in a hour, and that each elf is only paired once in an hour. The source node is index 0, 
@@ -18,12 +19,18 @@ are *e* * 24, are indexes *r* * 24 to *r* * 24 + *e* * 24. The sink is index *r*
 The sample test cases are simple to develop intuition for the problem. 
 The secret tests cases:  
     01: number of max gifts possible is 5400. so if gift count is above that, it's impossible  
+
     02: overflows if the solution doesn't use 64 bit integer for storing gift count *g*  
+
     03: stress case: max of all inputs. This wouldn't be too stressful if code accounts for 5400 gifts possible  
+
     04: tests the minimum of all inputs  
+    
     05: tests the max of all inputs except g is 5400 in the case that solution has a trick 
     to exit at a certain threshold of g  
+
     06: random, just so it may somehow catch something missed by other test cases  
+    
     07: a test that should output `possible` because most of these tests either ouput 
     `impossible` or are very simple  
 
