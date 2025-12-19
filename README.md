@@ -5,7 +5,7 @@ Author: Vidhi Patel
 ID: 1702707
 
 # Algorithm Description
-Algorithm: The solution implements network flow using kactl's Dinic implementation. Since the solution utilizes a unit network (where each edge has a capacity of 1), the time complexity is O(sqrt(V) * E). 
+Algorithm: The solution implements network flow using kactl's Dinic implementation. Since the solution utilizes a unit network (where each edge has a capacity of 1), the time complexity is O(sqrt(V) * E), where V = (r + e) * 24 and E = r * e * 24^2. 
 
 The solution uses Dinic's algorithm to create a network flow. The network has this structure: 
 `source --> reindeer-hour nodes --> elf-hour nodes --> sink`. This structure ensures that each available reindeer
