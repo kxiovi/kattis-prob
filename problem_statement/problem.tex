@@ -20,9 +20,9 @@ $r_1$ may be available at hours 1, 2, 3, 4 and $r_2$ may be available at hours 1
 \section*{Input}
 
 The first line of input contains 3 integers $r, e, g$ ($1 \leq r \leq 9$ and $1 \leq e \leq 25\,000$ 
-and $0 \leq g \leq 18\,446\,744\,073\,709\,551\,615$) as defined in the problem. Then, for the next $r$ 
-lines, there is a $r_i$ ($1 \leq i \leq 9$) differentiating the reindeer. On the next hours $h$ lines, for each 
-$r_i$, the first integer is $h$, and the next integer is some quantity of $e_j$ ($1 \leq j \leq 25\,000$), 
+and $0 \leq g \lt 2^64$) as defined in the problem. Then, for the next $r$ 
+lines, there is a $r_i$ ($1 \leq i \leq r$) differentiating the reindeer. On the next hours $h$ lines, for each 
+$r_i$, the first integer is $h$ ($1 \leq 24$), and the next integer is some quantity of $e_j$ ($1 \leq j \leq e$), 
 space separated, that a reindeer can work with in that hour. A separate line containing 0 marks the end of a 
 reindeer's preferences list.
 
