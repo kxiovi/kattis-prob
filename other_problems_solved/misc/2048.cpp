@@ -63,7 +63,37 @@ vector<vi> dir0(vector<vi> grid) {
 }
 
 vector<vi> dir2(vector<vi> grid) {
-    
+    vector<vi> init(4);
+    for (int i = 0; i < 4; ++i) {
+        for (int j = 0; j < 4; ++j) {
+            if (grid[i][j] != 0) {
+                init[i].push_back(grid[i][j]);
+            }
+        }
+
+        for (int j = 2; j >= 0; --j) {
+            if (init[i][j+1] == init[i][j]) {
+                init[i][j+1] <<= 1;
+                init[i][j] = 0;
+                j--;
+            }
+        }
+
+        vector<int> remove;
+        for (int a : init[i]) {
+            if (a != 0) {
+                remove.push_back(a);
+            }
+        }
+
+        while (remove.size() < 4) {
+            remove.insert(remove.begin(), 0);
+        }
+
+        init[i] = remove;
+    }
+
+    return init;
 }
 
 
@@ -88,7 +118,7 @@ int main() {
         ans = dir0(init);
     } else 
     if (dir == 2) {
-        ans = dir2(g);
+        ans = dir2(init);
     }
 
     show(ans);
