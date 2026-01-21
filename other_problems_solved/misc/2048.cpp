@@ -31,32 +31,39 @@ vector<vi> dir0(vector<vi> grid) {
 
     // push all integers to the left
     for (int i = 0; i < 4; ++i) {
-        int count = 0;
         for (int j = 0; j < 4; ++j) {
             if (grid[i][j] != 0) {
                 init[i].push_back(grid[i][j]);
-            } else {
-                ++count;
             }
         }
-        for (int j = 0; j < count; ++j) {
-            init[i].push_back(0);
-        }
-    }
 
-    for (int i = 0; i < 4; ++i) {
         for (int j = 1; j < 4; ++j) {
             if (init[i][j-1] == init[i][j]) {
                 init[i][j-1] <<= 1;
                 init[i][j] = 0;
+                j++;
             }
         }
-        for (int j = 0; j < count; ++j) {
-            init[i].push_back(0);
+
+        vector<int> remove;
+        for (int a : init[i]) {
+            if (a != 0) {
+                remove.push_back(a);
+            }
         }
+
+        while (remove.size() < 4) {
+            remove.push_back(0);
+        }
+
+        init[i] = remove;
     }
 
     return init;
+}
+
+vector<vi> dir2(vector<vi> grid) {
+    
 }
 
 
@@ -79,6 +86,9 @@ int main() {
     vector<vi> ans;
     if (dir == 0) {
         ans = dir0(init);
+    } else 
+    if (dir == 2) {
+        ans = dir2(g);
     }
 
     show(ans);
