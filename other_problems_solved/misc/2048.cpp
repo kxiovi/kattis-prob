@@ -37,7 +37,7 @@ vector<vi> dir0(vector<vi> grid) {
             }
         }
 
-        for (int j = 1; j < 4; ++j) {
+        for (int j = 1; j < (int)init[i].size(); ++j) {
             if (init[i][j-1] == init[i][j]) {
                 init[i][j-1] <<= 1;
                 init[i][j] = 0;
@@ -71,7 +71,7 @@ vector<vi> dir2(vector<vi> grid) {
             }
         }
 
-        for (int j = 2; j >= 0; --j) {
+        for (int j = (int)init[i].size() - 2; j >= 0; --j) {
             if (init[i][j+1] == init[i][j]) {
                 init[i][j+1] <<= 1;
                 init[i][j] = 0;
@@ -96,6 +96,15 @@ vector<vi> dir2(vector<vi> grid) {
     return init;
 }
 
+vector<vi> rotate(const vector<vi> &g) {
+    vector<vi> init(4, vi(4));
+    for (int i = 0; i < 4; ++i) {
+        for (int j = 0; j < 4; ++j) {
+            init[j][3-i] = g[i][j];
+        }
+    }
+    return init;
+}
 
 int main() {
     ios::sync_with_stdio(false);
@@ -119,6 +128,20 @@ int main() {
     } else 
     if (dir == 2) {
         ans = dir2(init);
+    } else 
+    if (dir == 3) {
+        init = rotate(init);
+        ans = dir0(init);
+        ans = rotate(ans);
+        ans = rotate(ans);
+        ans = rotate(ans);
+    } else 
+    if (dir == 1) {
+        init = rotate(init);
+        ans = dir2(init);
+        ans = rotate(ans);
+        ans = rotate(ans);
+        ans = rotate(ans);
     }
 
     show(ans);
